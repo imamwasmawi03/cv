@@ -9,17 +9,20 @@
       size: A4;
       margin: 0;
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f2f2f2;
       color: #333;
       padding: 20px 0;
     }
+
     .cv-container {
       display: flex;
       width: 210mm;
@@ -30,6 +33,7 @@
       border-radius: 16px;
       overflow: hidden;
     }
+
     .left-panel {
       width: 35%;
       background-color: #1e2a36;
@@ -39,6 +43,7 @@
       flex-direction: column;
       align-items: center;
     }
+
     .left-panel img {
       width: 140px;
       height: 140px;
@@ -46,15 +51,18 @@
       object-fit: cover;
       margin-bottom: 20px;
     }
+
     .left-panel h1 {
       font-size: 24px;
       margin-bottom: 4px;
     }
+
     .left-panel p.subtitle {
       font-size: 14px;
       color: #ccc;
       margin-bottom: 20px;
     }
+
     .left-panel .section-title {
       margin: 20px 0 10px;
       font-size: 16px;
@@ -63,11 +71,13 @@
       width: 100%;
       padding-bottom: 5px;
     }
+
     .left-panel ul {
       list-style: none;
       font-size: 14px;
       line-height: 1.6;
     }
+
     .left-panel .contact p {
       font-size: 14px;
       margin: 6px 0;
@@ -77,6 +87,7 @@
       width: 65%;
       padding: 30px;
     }
+
     .right-panel h2 {
       font-size: 18px;
       color: #1e2a36;
@@ -84,13 +95,52 @@
       border-left: 4px solid #007acc;
       padding-left: 10px;
     }
+
     .right-panel p,
     .right-panel li {
       font-size: 14px;
       margin-bottom: 6px;
     }
+
     .right-panel ul {
       margin-bottom: 20px;
+    }
+
+    .print-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .print-button button {
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .print-button button:hover {
+      background-color: #005fa3;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background: white !important;
+        padding: 0 !important;
+      }
+
+      .cv-container {
+        box-shadow: none !important;
+      }
+
+      .print-button {
+        display: none !important;
+      }
     }
   </style>
 </head>
@@ -142,10 +192,12 @@
 
       <h2>PENGALAMAN</h2>
       <ul>
-        <li><strong>PT. Synerga Tata Internasional – Staff Operasional dan IT</strong><br/>Menangani kegiatan operasional dan dukungan teknis IT perusahaan (2016–2017).</li>
-        <li><strong>Freelance – Web Aplikasi Penimbangan dan Panen Sawit</strong><br/>Membuat sistem web aplikasi penimbangan sawit dan panen sawit untuk PTPN 2.</li>
+        <li><strong>PT. Synerga Tata Internasional – Staff Operasional dan IT</strong><br/>
+            Menangani kegiatan operasional dan dukungan teknis IT perusahaan (2016–2017).</li>
+        <li><strong>Freelance – Web Aplikasi Penimbangan dan Panen Sawit</strong><br/>
+            Membuat sistem web aplikasi penimbangan sawit dan panen sawit untuk PTPN 2.</li>
         <li><strong>Flutter Programmer & Web Developer – Universitas Medan Area</strong><br/>
-Bertanggung jawab atas pengembangan aplikasi presensi mobile (Android & iOS) untuk pegawai dan mahasiswa, pengembangan web internal, serta pengelolaan akun developer Google dan Apple. (2018–2025)</li>
+            Bertanggung jawab atas pengembangan aplikasi presensi mobile (Android & iOS) untuk pegawai dan mahasiswa, pengembangan web internal, serta pengelolaan akun developer Google dan Apple. (2018–2025)</li>
       </ul>
 
       <h2>HOBI</h2>
@@ -157,5 +209,15 @@ Bertanggung jawab atas pengembangan aplikasi presensi mobile (Android & iOS) unt
       </ul>
     </div>
   </div>
+
+  <div class="print-button">
+    <button onclick="printCV()">🖨️ Cetak CV</button>
+  </div>
+
+  <script>
+    function printCV() {
+      window.print();
+    }
+  </script>
 </body>
 </html>
