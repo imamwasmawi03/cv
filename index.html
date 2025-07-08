@@ -16,10 +16,24 @@
       font-family: 'Segoe UI', Tahoma, sans-serif;
       color: #f4f4f4;
       background-color: #0f172a;
+      height: 100%;
+      overflow-x: hidden;
     }
 
     body {
       line-height: 1.6;
+      position: relative;
+      z-index: 0;
+    }
+
+    /* Particle background canvas */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      z-index: -1;
+      background-color: #0f172a;
     }
 
     .parallax-header {
@@ -30,6 +44,7 @@
       align-items: center;
       text-align: center;
       position: relative;
+      z-index: 1;
     }
 
     .parallax-header::after {
@@ -37,11 +52,12 @@
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background-color: rgba(15, 23, 42, 0.85);
+      z-index: 2;
     }
 
     .parallax-header .content {
       position: relative;
-      z-index: 1;
+      z-index: 3;
     }
 
     .parallax-header h1 {
@@ -60,7 +76,7 @@
       text-align: center;
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 10;
     }
 
     nav a {
@@ -79,6 +95,8 @@
       padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
+      position: relative;
+      z-index: 5;
     }
 
     .section-title {
@@ -94,6 +112,7 @@
       border-radius: 12px;
       padding: 30px;
       margin-bottom: 40px;
+      box-shadow: 0 0 15px rgba(56, 221, 248, 0.3);
     }
 
     .skills ul {
@@ -111,6 +130,12 @@
       border-radius: 16px;
       font-weight: 600;
       font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease;
+    }
+
+    .skills li:hover {
+      background-color: #22d3ee;
     }
 
     .projects {
@@ -124,11 +149,12 @@
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .project-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(56, 221, 248, 0.6);
     }
 
     .project-card h3 {
@@ -142,11 +168,15 @@
       color: #94a3b8;
       padding: 30px 20px;
       margin-top: 60px;
+      position: relative;
+      z-index: 5;
     }
 
     .print-button {
       text-align: center;
       margin: 30px 0;
+      position: relative;
+      z-index: 5;
     }
 
     .print-button a {
@@ -158,7 +188,16 @@
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
     }
+
+    .print-button a:hover {
+      background-color: #22d3ee;
+    }
+
     .profile-photo {
       width: 140px;
       height: 140px;
@@ -168,6 +207,7 @@
       border: 4px solid #38bdf8;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
+
     @media print {
       nav, .print-button, footer {
         display: none;
@@ -182,6 +222,9 @@
   </style>
 </head>
 <body>
+
+  <!-- Particle.js container -->
+  <div id="particles-js"></div>
 
   <header class="parallax-header">
     <div class="content">
@@ -251,6 +294,93 @@
   <footer>
     &copy; 2025 Imam Wasmawi.
   </footer>
+
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <script>
+    /* Initialize particles.js */
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#38bdf8"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 120,
+          "color": "#38bdf8",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "bounce",
+          "bounce": true,
+          "attract": {
+            "enable": false
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 150,
+            "line_linked": {
+              "opacity": 0.6
+            }
+          },
+          "push": {
+            "particles_nb": 4
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 
 </body>
 </html>
