@@ -21,6 +21,20 @@
       background: #f2f2f2;
       color: #333;
       padding: 20px 0;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+      z-index: 0;
+    }
+
+    /* Particle background canvas */
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: #f2f2f2;
     }
 
     .cv-container {
@@ -32,6 +46,8 @@
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       border-radius: 16px;
       overflow: hidden;
+      position: relative;
+      z-index: 1;
     }
 
     .left-panel {
@@ -50,6 +66,8 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 20px;
+      border: 4px solid #38bdf8;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     .left-panel h1 {
@@ -109,6 +127,8 @@
     .print-button {
       text-align: center;
       margin-top: 20px;
+      position: relative;
+      z-index: 2;
     }
 
     .print-button button {
@@ -126,6 +146,19 @@
       background-color: #005fa3;
     }
 
+    .print-button a {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #007acc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .print-button a:hover {
+      color: #005fa3;
+    }
+
     @media print {
       body {
         -webkit-print-color-adjust: exact !important;
@@ -141,10 +174,18 @@
       .print-button {
         display: none !important;
       }
+
+      #particles-js {
+        display: none !important;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Particle background -->
+  <div id="particles-js"></div>
+
   <div class="cv-container">
     <div class="left-panel">
       <img src="./imam-wasmawi.jpeg" alt="Foto Imam Wasmawi" />
@@ -218,7 +259,83 @@
     <a href="/">Kembali</a>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 700
+          }
+        },
+        "color": {
+          "value": "#007acc"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 130,
+          "color": "#007acc",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "bounce",
+          "bounce": true,
+          "attract": {
+            "enable": false
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 150,
+            "line_linked": {
+              "opacity": 0.6
+            }
+          },
+          "push": {
+            "particles_nb": 4
+          }
+        }
+      },
+      "retina_detect": true
+    });
+    
     function printCV() {
       window.print();
     }
