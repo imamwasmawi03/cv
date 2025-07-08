@@ -2,222 +2,255 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV Imam Wasmawi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio Imam Wasmawi</title>
   <style>
-    @page {
-      size: A4;
-      margin: 0;
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html, body {
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      color: #f4f4f4;
+      background-color: #0f172a;
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f2f2f2;
-      color: #333;
-      padding: 20px 0;
+      line-height: 1.6;
     }
 
-    .cv-container {
+    .parallax-header {
+      background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+      height: 100vh;
       display: flex;
-      width: 210mm;
-      height: 297mm;
-      margin: auto;
-      background: #fff;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .left-panel {
-      width: 35%;
-      background-color: #1e2a36;
-      color: white;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      text-align: center;
+      position: relative;
     }
 
-    .left-panel img {
+    .parallax-header::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(15, 23, 42, 0.85);
+    }
+
+    .parallax-header .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .parallax-header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .parallax-header p {
+      font-size: 20px;
+      color: #94a3b8;
+    }
+
+    nav {
+      background: #1e293b;
+      padding: 10px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #e2e8f0;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 30px;
+      border-left: 6px solid #38bdf8;
+      padding-left: 12px;
+      color: #38bdf8;
+    }
+
+    .about, .skills, .contact {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 40px;
+    }
+
+    .skills ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .skills li {
+      background: #38bdf8;
+      color: #0f172a;
+      padding: 10px 16px;
+      margin: 8px;
+      border-radius: 16px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card h3 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 30px 20px;
+      margin-top: 60px;
+    }
+
+    .print-button {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .print-button a {
+      padding: 12px 24px;
+      font-size: 14px;
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .profile-photo {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 20px;
+      border: 4px solid #38bdf8;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
-
-    .left-panel h1 {
-      font-size: 24px;
-      margin-bottom: 4px;
-    }
-
-    .left-panel p.subtitle {
-      font-size: 14px;
-      color: #ccc;
-      margin-bottom: 20px;
-    }
-
-    .left-panel .section-title {
-      margin: 20px 0 10px;
-      font-size: 16px;
-      font-weight: bold;
-      border-bottom: 1px solid #ccc;
-      width: 100%;
-      padding-bottom: 5px;
-    }
-
-    .left-panel ul {
-      list-style: none;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .left-panel .contact p {
-      font-size: 14px;
-      margin: 6px 0;
-    }
-
-    .right-panel {
-      width: 65%;
-      padding: 30px;
-    }
-
-    .right-panel h2 {
-      font-size: 18px;
-      color: #1e2a36;
-      margin-bottom: 10px;
-      border-left: 4px solid #007acc;
-      padding-left: 10px;
-    }
-
-    .right-panel p,
-    .right-panel li {
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
-
-    .right-panel ul {
-      margin-bottom: 20px;
-    }
-
-    .print-button {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .print-button button {
-      padding: 10px 20px;
-      font-size: 14px;
-      cursor: pointer;
-      background-color: #007acc;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      transition: background-color 0.3s;
-    }
-
-    .print-button button:hover {
-      background-color: #005fa3;
-    }
-
     @media print {
+      nav, .print-button, footer {
+        display: none;
+      }
       body {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
         background: white !important;
-        padding: 0 !important;
-      }
-
-      .cv-container {
-        box-shadow: none !important;
-      }
-
-      .print-button {
-        display: none !important;
+        color: black !important;
       }
     }
   </style>
 </head>
 <body>
-  <div class="cv-container">
-    <div class="left-panel">
-      <img src="./imam-wasmawi.jpeg" alt="Foto Imam Wasmawi" />
+
+  <header class="parallax-header">
+    <div class="content">
+      <img src="./imam-wasmawi.jpeg" alt="Foto Imam Wasmawi" class="profile-photo" />
       <h1>Imam Wasmawi</h1>
-      <p class="subtitle">Programmer</p>
-      <p>Lulusan S1 Sistem Informasi yang berpengalaman dalam pengembangan web dan mobile apps, memiliki kemampuan komunikasi yang baik dan siap bekerja dalam tim.</p>
+      <p>Flutter & Web Developer</p>
+    </div>
+  </header>
 
-      <div class="section-title">KEAHLIAN</div>
-      <ul>
-        <li>Laravel</li>
-        <li>Next.js</li>
-        <li>Nest.js</li>
-        <li>Express.js</li>
-        <li>Axum (Rust)</li>
-        <li>MySQL</li>
-        <li>Flutter (Android/iOS)</li>
-        <li>Management Google & iOS Developer</li>
-      </ul>
+  <nav>
+    <a href="#about">Tentang</a>
+    <a href="#skills">Keahlian</a>
+    <a href="#projects">Projek</a>
+    <a href="#contact">Kontak</a>
+  </nav>
 
-      <div class="section-title">KONTAK</div>
-      <div class="contact">
-        <p>📞 082165561175</p>
-        <p>📍 Medan, Indonesia</p>
-        <p>✉️ officialimam03@gmail.com</p>
+  <section id="about" class="about">
+    <div class="section-title">Tentang Saya</div>
+    <p>Saya adalah seorang programmer dengan pengalaman lebih dari 5 tahun di bidang mobile (Flutter) dan web development (Laravel, Next.js, Express.js, Rust). Saat ini bekerja sebagai Programmer di Universitas Medan Area dan telah membuat banyak sistem presensi, kepegawaian, dan manajemen digital kampus.</p>
+  </section>
+
+  <section id="skills" class="skills">
+    <div class="section-title">Keahlian</div>
+    <ul>
+      <li>Flutter</li>
+      <li>Laravel</li>
+      <li>Next.js</li>
+      <li>Nest.js</li>
+      <li>Express.js</li>
+      <li>Axum (Rust)</li>
+      <li>MySQL</li>
+      <li>REST API</li>
+      <li>Firebase</li>
+      <li>Git & GitHub</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <div class="section-title">Projek</div>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Aplikasi Presensi UMA</h3>
+        <p>Aplikasi Android/iOS presensi pegawai, mahasiswa & dosen UMA berbasis Flutter dengan dukungan GPS, fingerprint dan laporan absensi bulanan.</p>
+      </div>
+      <div class="project-card">
+        <h3>Aplikasi Web Internal UMA</h3>
+        <p>Aplikasi berbasis web untuk internal kampus, mencakup sistem manajemen surat, kepegawaian, event dan agenda dosen.</p>
+      </div>
+      <div class="project-card">
+        <h3>Monitoring Panen Sawit</h3>
+        <p>Sistem web untuk PTPN 2 dalam memonitor panen & penimbangan sawit secara real-time. Dibuat sebagai proyek freelance.</p>
       </div>
     </div>
+  </section>
 
-    <div class="right-panel">
-      <h2>DATA PRIBADI</h2>
-      <ul>
-        <li>Tempat, Tanggal Lahir: Medan, 03 Desember 1994</li>
-        <li>Jenis Kelamin: Laki-laki</li>
-        <li>Agama: Islam</li>
-        <li>Kewarganegaraan: Indonesia</li>
-        <li>Status: Sudah Menikah</li>
-      </ul>
-
-      <h2>PENDIDIKAN</h2>
-      <ul>
-        <li>SDN 106815 (2000–2006)</li>
-        <li>SMP Al-Wasliyah 8 Medan (2006–2009)</li>
-        <li>SMA UISU Medan (2009–2012)</li>
-        <li>Sekolah Tinggi Teknik Harapan Medan – S1 Sistem Informasi (2012–2016)</li>
-      </ul>
-
-      <h2>PENGALAMAN</h2>
-      <ul>
-        <li><strong>PT. Synerga Tata Internasional – Staff Operasional dan IT</strong><br/>
-            Menangani kegiatan operasional dan dukungan teknis IT perusahaan (2016–2017).</li>
-        <li><strong>Freelance – Web Aplikasi Penimbangan dan Panen Sawit</strong><br/>
-            Membuat sistem web aplikasi penimbangan sawit dan panen sawit untuk PTPN 2.</li>
-        <li><strong>Flutter Programmer & Web Developer – Universitas Medan Area</strong><br/>
-            Bertanggung jawab atas pengembangan aplikasi presensi mobile (Android & iOS) untuk pegawai dan mahasiswa, pengembangan web internal, serta pengelolaan akun developer Google dan Apple. (2018–2025)</li>
-      </ul>
-
-      <h2>HOBI</h2>
-      <ul>
-        <li>Ngoding</li>
-        <li>Experiment</li>
-        <li>Traveling</li>
-        <li>Jogging</li>
-      </ul>
-    </div>
-  </div>
+  <section id="contact" class="contact">
+    <div class="section-title">Kontak</div>
+    <p><strong>Email:</strong> officialimam03@gmail.com</p>
+    <p><strong>Telepon:</strong> 0821-6556-1175</p>
+    <p><strong>Lokasi:</strong> Medan, Indonesia</p>
+  </section>
 
   <div class="print-button">
-    <button onclick="printCV()">🖨️ Cetak CV</button>
+    <a href="portfolio.html" class="print-button">🖨 Curiculum Vitae </a>
   </div>
 
-  <script>
-    function printCV() {
-      window.print();
-    }
-  </script>
+  <footer>
+    &copy; 2025 Imam Wasmawi. Dibuat dengan 💻 dan semangat di Medan.
+  </footer>
+
 </body>
 </html>
